@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>DaniloTh3dAn para diabéticos</title>
     
-    <!-- PWA & Mobile Experience Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="DaniloTh3dAn">
@@ -21,7 +20,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://rsms.me/"><link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     
-    <!-- Estilos do Novo Design "Liquid Glass" -->
     <style>
         :root {
             --bg-start-light: #f3e8ff;
@@ -156,21 +154,18 @@
 </head>
 <body class="flex items-center justify-center min-h-screen">
     
-    <!-- Fundo Líquido Animado -->
     <div id="background-container">
         <div class="blob blob1"></div>
         <div class="blob blob2"></div>
         <div class="blob blob3"></div>
     </div>
 
-    <!-- Ecrã de Configuração e Erros -->
     <div id="setup-screen" class="phone-container text-gray-800 dark:text-gray-200 rounded-[56px] flex-col items-center justify-center p-6 text-center z-50 hidden overflow-y-auto glass-effect">
         <h1 class="text-2xl font-bold text-red-500 mb-4">Ação Necessária</h1>
         <div id="setup-content" class="text-left text-sm space-y-4"></div>
         <button id="retry-button" class="mt-6 w-full text-white font-bold py-3 px-4 transition primary-btn">Tentar Novamente</button>
     </div>
 
-    <!-- Tela de Login / Carregamento -->
     <div id="login-screen" class="absolute inset-0 flex items-center justify-center w-full h-full z-40 transition-opacity duration-300">
         <div class="phone-container rounded-[56px] flex flex-col items-center justify-center p-8 text-center glass-effect">
             <h1 class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2 screen-title">DaniloTh3dAn<br><span class="text-xl font-normal screen-subtitle">para diabéticos</span></h1>
@@ -187,19 +182,14 @@
     </div>
 
 
-    <!-- Container Principal da Aplicação -->
     <div id="app-container" class="phone-container rounded-[56px] overflow-hidden hidden z-30">
         <div class="w-full h-full flex flex-col">
-            <!-- Barra de Status -->
             <div class="status-bar"><span id="time">11:50</span><div class="flex items-center space-x-1"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><i class="fas fa-battery-full"></i></div></div>
-            <!-- Área de Conteúdo Principal -->
             <main id="main-content" class="flex-1 overflow-y-auto"></main>
         </div>
 
-        <!-- Botão de Ação Flutuante -->
         <button id="log-button" class="absolute right-6 bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform z-20"><i class="fas fa-plus text-2xl"></i></button>
 
-        <!-- Container da Barra de Navegação Flutuante -->
         <div class="floating-nav-container absolute left-4 right-4 z-10 flex justify-center">
              <nav class="glass-effect flex items-center justify-around">
                 <div class="nav-item relative text-center cursor-pointer flex-1 flex justify-center items-center h-12 active" data-screen="dashboard"><i class="fas fa-th-large text-xl z-10"></i></div>
@@ -211,12 +201,10 @@
             </nav>
         </div>
         
-        <!-- Modals de Registro Detalhado -->
         <div class="absolute inset-0 w-full h-full z-40 pointer-events-none">
             <div id="glucose-modal" class="absolute inset-0 w-full h-full detail-modal flex flex-col pointer-events-auto"><header class="p-4 flex items-center border-b"><button class="close-detail-modal-btn text-purple-500 dark:text-purple-400"><i class="fas fa-chevron-left mr-2"></i> Voltar</button><h2 class="text-lg font-bold screen-title mx-auto">Registrar Glicose</h2></header><div class="flex-1 p-6 flex flex-col items-center justify-center overflow-y-auto"><div id="glucose-slider-container" class="slider-container"><input type="number" id="glucose-display-value" class="slider-value-display" value="120"><div class="screen-subtitle mb-4">mg/dL</div><div class="slider-track"><div class="slider-thumb"></div></div></div><div class="mt-8 w-full max-w-xs space-y-4"><label for="glucose-timestamp-input" class="screen-subtitle -mb-3 block text-sm">Data e Hora</label><input type="datetime-local" id="glucose-timestamp-input" class="w-full text-lg p-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"><label for="glucose-situation-select" class="screen-subtitle -mb-3 block text-sm">Situação</label><select id="glucose-situation-select" class="w-full text-lg p-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"><option>Geral</option><option>Em Jejum</option><option>Antes do Café da Manhã</option><option>Depois do Café da Manhã</option><option>Antes do Almoço</option><option>Depois do Almoço</option><option>Antes do Jantar</option><option>Depois do Jantar</option><option>Ao Deitar</option><option>De Madrugada</option><option>Antes do Exercício</option><option>Depois do Exercício</option></select><label for="glucose-notes-input" class="screen-subtitle -mb-3 block text-sm">Notas</label><textarea id="glucose-notes-input" placeholder="Ex: Estresse, pós-exercício..." rows="3" class="w-full text-lg p-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"></textarea></div></div><footer class="p-4 border-t"><button class="save-btn w-full font-bold py-3 px-4 primary-btn" data-type="glucose"><span class="btn-content">Salvar Glicose</span><span class="btn-loader"></span><span class="btn-success"><i class="fas fa-check"></i></span></button></footer></div>
             <div id="insulin-modal" class="absolute inset-0 w-full h-full detail-modal flex flex-col pointer-events-auto"><header class="p-4 flex items-center border-b"><button class="close-detail-modal-btn text-purple-500 dark:text-purple-400"><i class="fas fa-chevron-left mr-2"></i> Voltar</button><h2 class="text-lg font-bold screen-title mx-auto">Registrar Insulina</h2></header><div class="flex-1 p-6 flex flex-col items-center justify-center overflow-y-auto"><div id="insulin-slider-container" class="slider-container"><input type="number" step="0.5" id="insulin-display-value" class="slider-value-display" value="0.0"><div class="screen-subtitle mb-4">unidades</div><div class="slider-track"><div class="slider-thumb"></div></div></div><div class="mt-8 w-full max-w-xs space-y-4"><div class="space-y-2"><label class="screen-subtitle block">Tipo</label><div class="flex space-x-2"><button class="insulin-type-btn flex-1 p-3 border rounded-lg bg-purple-500 text-white border-purple-500" data-type="Bolus (Lispro)">Bolus</button><button class="insulin-type-btn flex-1 p-3 border dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-200" data-type="Basal (Glargina)">Basal</button></div></div><div class="space-y-2"><label for="insulin-timestamp-input" class="screen-subtitle block text-sm">Data e Hora</label><input type="datetime-local" id="insulin-timestamp-input" class="w-full text-lg p-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"></div><div class="space-y-2"><label for="insulin-notes-input" class="screen-subtitle block text-sm">Notas</label><textarea id="insulin-notes-input" placeholder="Ex: Novo local de aplicação..." rows="3" class="w-full text-lg p-3 focus:ring-2 focus:ring-purple-500 focus:outline-none"></textarea></div></div></div><footer class="p-4 border-t"><button class="save-btn w-full font-bold py-3 px-4 primary-btn" data-type="insulin"><span class="btn-content">Salvar Insulina</span><span class="btn-loader"></span><span class="btn-success"><i class="fas fa-check"></i></span></button></footer></div>
             
-            <!-- MODAL DE REFEIÇÃO REESTRUTURADO -->
             <div id="meal-modal" class="absolute inset-0 w-full h-full detail-modal flex flex-col pointer-events-auto">
                 <header class="p-4 flex items-center border-b"><button class="close-detail-modal-btn text-purple-500 dark:text-purple-400"><i class="fas fa-chevron-left mr-2"></i> Voltar</button><h2 class="text-lg font-bold screen-title mx-auto">Registrar Refeição</h2></header>
                 
@@ -253,7 +241,6 @@
         </div>
     </div>
     
-    <!-- Modal Calculadora de Bolus (Estilo Popup) -->
     <div id="bolus-calculator-modal" class="fixed inset-0 flex items-center justify-center hidden opacity-0 z-50">
         <div class="modal-box w-11/12 max-w-sm transform scale-95 opacity-0 p-6 glass-effect">
             <header class="flex items-center justify-between mb-4"><h2 class="text-lg font-bold screen-title">Calculadora de Bolus</h2><button id="close-bolus-modal-btn" class="screen-subtitle hover:text-gray-700 dark:hover:text-gray-200"><i class="fas fa-times"></i></button></header>
@@ -267,7 +254,6 @@
         </div>
     </div>
 
-    <!-- Modal Principal de Registro -->
     <div id="log-modal" class="fixed inset-0 flex items-end justify-center hidden modal-backdrop opacity-0 z-30">
         <div class="modal-content w-full max-w-md transform translate-y-full opacity-0 p-6 glass-effect rounded-t-3xl">
              <div class="flex justify-between items-center mb-6"><h2 class="text-xl font-bold screen-title">Registrar Entrada</h2><button id="close-modal-btn" class="screen-subtitle hover:text-gray-800 dark:hover:text-white"><i class="fas fa-times text-2xl"></i></button></div>
@@ -282,7 +268,6 @@
         </div>
     </div>
     
-    <!-- Modal de Seleção de Data para Relatório -->
     <div id="report-date-modal" class="fixed inset-0 flex items-center justify-center hidden opacity-0 z-50">
         <div class="modal-box w-11/12 max-w-sm transform scale-95 opacity-0 p-6 glass-effect">
             <header class="flex items-center justify-between mb-4"><h2 class="text-lg font-bold screen-title">Selecionar Período</h2><button id="close-date-modal-btn" class="screen-subtitle hover:text-gray-700 dark:hover:text-gray-200"><i class="fas fa-times"></i></button></header>
@@ -294,10 +279,8 @@
         </div>
     </div>
 
-    <!-- Toast Notification -->
     <div id="toast" class="fixed left-1/2 -translate-x-1/2 py-2 px-6 opacity-0 transform translate-y-10 z-50"></div>
 
-    <!-- Firebase SDKs & App Logic -->
     <script type="module">
         import { initializeApp, getApp, getApps } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -327,7 +310,7 @@
                 try {
                      firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
                      if (!firebaseConfig.apiKey) {
-                        throw new Error("Firebase config not found or invalid.");
+                         throw new Error("Firebase config not found or invalid.");
                      }
                 } catch(e) {
                     console.warn("Could not parse __firebase_config, using fallback.");
@@ -429,6 +412,7 @@
             function formatToDateTimeLocal(date) { const year = date.getFullYear(); const month = (date.getMonth() + 1).toString().padStart(2, '0'); const day = date.getDate().toString().padStart(2, '0'); const hours = date.getHours().toString().padStart(2, '0'); const minutes = date.getMinutes().toString().padStart(2, '0'); return `${year}-${month}-${day}T${hours}:${minutes}`; }
             function applyTheme(theme) { if (theme === 'dark') { document.documentElement.classList.add('dark'); Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.2)'; Chart.defaults.color = '#d1d5db'; } else { document.documentElement.classList.remove('dark'); Chart.defaults.borderColor = 'rgba(0, 0, 0, 0.1)'; Chart.defaults.color = '#374151'; } userSettings.theme = theme; const activeScreen = document.querySelector('.nav-item.active')?.dataset.screen; if (isDataLoaded && (activeScreen === 'dashboard' || activeScreen === 'analysis' || activeScreen === 'reports')) { renderScreen(activeScreen); } }
             function toggleTheme() { const newTheme = userSettings.theme === 'light' ? 'dark' : 'light'; applyTheme(newTheme); saveState(); }
+            function getMealPeriod() { const hour = new Date().getHours(); if (hour >= 5 && hour < 12) { return 'morning'; } else if (hour >= 12 && hour < 18) { return 'afternoon'; } else { return 'night'; } }
 
             // CONTROLE DE VISIBILIDADE DAS TELAS PRINCIPAIS
             function showLoading() { loginScreen.classList.remove('hidden'); authScreen.classList.add('hidden'); loadingContent.classList.remove('hidden'); setupScreen.classList.add('hidden'); }
@@ -818,40 +802,40 @@
             async function callGeminiAPI(prompt, systemInstruction, apiKey, isJson = false) {
                  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
                  const payload = {
-                    contents: [{ parts: [{ text: prompt }] }],
-                    systemInstruction: { parts: [{ text: systemInstruction }] },
+                   contents: [{ parts: [{ text: prompt }] }],
+                   systemInstruction: { parts: [{ text: systemInstruction }] },
                  };
                  if (isJson) {
-                    payload.generationConfig = {
-                        responseMimeType: "application/json",
-                        responseSchema: {
-                          type: "ARRAY",
-                          items: {
-                            type: "OBJECT",
-                            properties: {
-                              "name": { "type": "STRING" },
-                              "brand": { "type": "STRING" },
-                              "portion": { "type": "STRING" },
-                              "carbs": { "type": "NUMBER" }
-                            },
-                             required: ["name", "portion", "carbs"]
-                          }
-                        }
-                    }
+                   payload.generationConfig = {
+                       responseMimeType: "application/json",
+                       responseSchema: {
+                         type: "ARRAY",
+                         items: {
+                           type: "OBJECT",
+                           properties: {
+                             "name": { "type": "STRING" },
+                             "brand": { "type": "STRING" },
+                             "portion": { "type": "STRING" },
+                             "carbs": { "type": "NUMBER" }
+                           },
+                            required: ["name", "portion", "carbs"]
+                         }
+                       }
+                   }
                  }
 
                  try {
-                    const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        console.error("Detalhe do Erro da API:", errorData);
-                        throw new Error(`Erro da API: ${response.statusText}`);
-                    }
-                    const result = await response.json();
-                    return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                   const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                   if (!response.ok) {
+                       const errorData = await response.json();
+                       console.error("Detalhe do Erro da API:", errorData);
+                       throw new Error(`Erro da API: ${response.statusText}`);
+                   }
+                   const result = await response.json();
+                   return result.candidates?.[0]?.content?.parts?.[0]?.text;
                  } catch (error) {
-                    console.error("Erro na chamada da API Gemini:", error);
-                    return null;
+                   console.error("Erro na chamada da API Gemini:", error);
+                   return null;
                  }
             }
             
@@ -1085,9 +1069,9 @@
                 display.addEventListener('input', (e) => { 
                     const numericValue = parseFloat(e.target.value.replace(',', '.'));
                      if (!isNaN(numericValue)) {
-                       const clampedValue = Math.max(min, Math.min(max, numericValue));
-                       const percent = ((clampedValue - min) / (max - min)) * 100;
-                       thumb.style.left = `calc(${percent}% - ${percent * 0.28}px)`;
+                      const clampedValue = Math.max(min, Math.min(max, numericValue));
+                      const percent = ((clampedValue - min) / (max - min)) * 100;
+                      thumb.style.left = `calc(${percent}% - ${percent * 0.28}px)`;
                      }
                 });
 
@@ -1106,4 +1090,3 @@
     </script>
 </body>
 </html>
-
